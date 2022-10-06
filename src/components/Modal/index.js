@@ -11,14 +11,18 @@ import {
   TextArea,
   Close,
 } from "./styles";
-import emailjs from 'emailjs-com';
+import emailjs from "emailjs-com";
 import { useModalContext } from "../../modal.context";
+import SuccessModal from "../SuccessModal";
 
 function Modal() {
   const {
     modalState: { message, visible },
+    openModal,
     closeModal,
   } = useModalContext();
+
+  const [success, setSuccess] = useState();
 
   const sendEmail = (e) => {
     emailjs
@@ -40,31 +44,41 @@ function Modal() {
 
   return (
     <Container>
-      <Form onSubmit={sendEmail}>
-        <Close size={25} onClick={() => closeModal()} />
-        <FirstRow>
-          <div>
-            <p>Nome</p>
-            <NameInput name="username" />
-          </div>
-          <div>
-            <p>Telefone</p>
-            <PhoneInput name="cellphone" />
-          </div>
-        </FirstRow>
-        <div>
-          <p>Email</p>
-          <EmailInput name="user_email" placeholder="exemplo@gmail.com" />
-        </div>
-        <div>
-          <p>Como podemos te ajudar?</p>
-          <TextArea name="message" placeholder="Gostaria de saber sobre a disponibilidade e os preços. Preciso de ajuda com o seguinte: " />
-        </div>
-        <SubmitButton type="submit">
-          <FaTelegramPlane />
-          <span>Enviar</span>
-        </SubmitButton>
-      </Form>
+      {success ? (
+        <SuccessModal />
+      ) : (
+        <>
+          {" "}
+          <Form onSubmit={sendEmail}>
+            <Close size={25} onClick={() => closeModal()} />
+            <FirstRow>
+              <div>
+                <p>Nome</p>
+                <NameInput name="username" />
+              </div>
+              <div>
+                <p>Telefone</p>
+                <PhoneInput name="cellphone" />
+              </div>
+            </FirstRow>
+            <div>
+              <p>Email</p>
+              <EmailInput name="user_email" placeholder="exemplo@gmail.com" />
+            </div>
+            <div>
+              <p>Como podemos te ajudar?</p>
+              <TextArea
+                name="message"
+                placeholder="Gostaria de saber sobre a disponibilidade e os preços. Preciso de ajuda com o seguinte: "
+              />
+            </div>
+            <SubmitButton type="submit" onClick={() => setSuccess(true)}>
+              <FaTelegramPlane />
+              <span>Enviar</span>
+            </SubmitButton>
+          </Form>
+        </>
+      )}
     </Container>
   );
 }
