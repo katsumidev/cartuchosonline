@@ -31,7 +31,8 @@ export const Container = styled.div`
 
   @media (max-width: 750px) {
     background-color: ${(props) => (props.isOpen ? "white" : "")};
-    justify-content: ${(props) => (props.active ? "space-between" : "flex-end")};
+    justify-content: ${(props) =>
+      props.active ? "space-between" : "flex-end"};
 
     img {
       display: ${(props) => (props.active ? "block" : "none")};
@@ -87,8 +88,15 @@ export const MobileHeader = styled.nav`
       border-radius: 12px;
       padding: 10px;
       transition: 0.2s;
-      color: white;
       background-image: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: white;
+      font-size: 16pt;
+      font-weight: 500;
 
       :hover {
         background-color: #2e5d9e;
@@ -150,8 +158,13 @@ export const DesktopHeader = styled.div`
       border-radius: 12px;
       padding: 10px;
       transition: 0.2s;
-      color: white;
       background-image: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: white;
 
       :hover {
         background-color: #2e5d9e;

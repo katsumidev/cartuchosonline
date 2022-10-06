@@ -144,10 +144,14 @@ export const Button = styled.div`
   overflow: hidden;
   text-decoration: none;
   text-transform: uppercase;
-  gap: 30px;
   border-radius: 5px;
-  width: 180px;
+  width: 150px;
   transition: 0.2s;
+  height: 40px;
+
+  a {
+    text-decoration: none;
+  }
 
   :hover {
     transform: scale(1.05);
@@ -158,10 +162,10 @@ export const Button = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 10px;
     z-index: 1;
     color: white;
     font-size: 12px;
+    gap: 10px;
     cursor: pointer;
     letter-spacing: 3px;
     font-weight: 900;
@@ -230,6 +234,10 @@ export const DropButton = styled.div`
   border: 3.5px solid #6d83f2;
   cursor: pointer;
   transition: 0.2s;
+
+  @media (max-width: 1100px) {
+    display: none;
+  }
 
   svg {
     color: #6d83f2;
@@ -396,5 +404,30 @@ export const Comment3 = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+`;
+
+export const CallButton = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  padding: 8px;
+  border-radius: 100%;
+  border: 3.5px solid #6d83f2;
+  cursor: pointer;
+  transition: 0.2s;
+
+  svg {
+    color: #6d83f2;
+  }
+
+  :hover {
+    background-color: #6d83f2;
+  }
+
+  :hover svg {
+    color: white;
   }
 `;

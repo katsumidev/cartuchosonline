@@ -72,12 +72,10 @@ function Header() {
                 Rotas
               </LinkTo>
             </li>
-            <li className="contact">
-              <LinkTo to="contactContainer" smooth={true}>
-                {" "}
-                <AiFillPhone /> Contato
-              </LinkTo>
-            </li>
+            <a className="contact" href="tel:+553433121695">
+              {" "}
+              <AiFillPhone /> Contato
+            </a>
           </ul>
         </DesktopHeader>
         <Menu>
@@ -98,7 +96,7 @@ function Header() {
               </LinkTo>
             </li>
             <li onClick={() => openModal()}>
-                <GiTicket /> Solicitar Cotação
+              <GiTicket /> Solicitar Cotação
             </li>
             <li>
               <LinkTo
@@ -110,16 +108,10 @@ function Header() {
                 Rotas
               </LinkTo>
             </li>
-            <li className="contact">
-              <LinkTo
-                to="contactContainer"
-                onClick={() => setOpen(!open)}
-                smooth={true}
-              >
-                {" "}
-                <AiFillPhone /> Contato
-              </LinkTo>
-            </li>
+            <a className="contact" href="tel:+553433121695">
+              {" "}
+              <AiFillPhone /> Contato
+            </a>
           </ul>
         </MobileHeader>
       ) : (

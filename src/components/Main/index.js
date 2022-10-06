@@ -14,8 +14,14 @@ import {
   Comment1,
   Comment2,
   Comment3,
+  CallButton,
 } from "./styles";
-import { GiTicket, RiArrowDropDownLine, AiFillStar } from "../../styles/Icons";
+import {
+  GiTicket,
+  RiArrowDropDownLine,
+  AiFillStar,
+  AiFillPhone,
+} from "../../styles/Icons";
 import Fade from "react-reveal/Fade";
 import Zoom from "react-reveal/Zoom";
 import { Link } from "react-scroll";
@@ -63,24 +69,29 @@ function Main() {
           <ButtonsContainer>
             <Zoom delay={200}>
               {width <= 1100 ? (
-                <Button onClick={() => openModal()}>
-                  <span>
-                    {" "}
-                    <GiTicket size={40} />
-                    SOLICITAR COTAÇÃO
-                  </span>
-                  <div></div>
-                </Button>
-              ) : (
-                <Button>
-                  <Link to="form" smooth={true}>
+                <ButtonsContainer>
+                  <Button onClick={() => openModal()}>
                     <span>
                       {" "}
                       <GiTicket size={40} />
                       SOLICITAR COTAÇÃO
                     </span>
                     <div></div>
-                  </Link>
+                  </Button>
+                  <CallButton href="tel:+553433121695">
+                    <AiFillPhone size={30} />
+                  </CallButton>
+                </ButtonsContainer>
+              ) : (
+                <Button>
+                  <a href="tel:+553433121695">
+                    <span>
+                      {" "}
+                      <AiFillPhone size={30}/>
+                      LIGUE AGORA
+                    </span>
+                    <div></div>
+                  </a>
                 </Button>
               )}
             </Zoom>
