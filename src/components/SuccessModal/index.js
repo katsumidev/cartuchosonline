@@ -15,7 +15,7 @@ function SuccessModal() {
         <div>
           <FiCheckCircle size={100} />
           <span>
-            <h2>Cotação solicitada com sucesso!</h2>
+            <h2>Cotação enviada com sucesso!</h2>
             <h3>Aguarde o contato.</h3>
           </span>
         </div>

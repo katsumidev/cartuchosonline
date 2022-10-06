@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   Map,
@@ -34,6 +34,7 @@ import locationIcon from "../../assets/location_icon.png";
 import L from "leaflet";
 import { Element } from "react-scroll";
 import { Fade, Zoom } from "react-reveal";
+import SuccessModal from "../SuccessModal";
 
 function Reviews() {
   const MarkerIcon = L.icon({
@@ -42,6 +43,8 @@ function Reviews() {
     iconAnchor: [12, 12],
     popupAnchor: [0, 0],
   });
+
+  const [open, setOpen] = useState(false);
 
   const sendEmail = (e) => {
     emailjs
@@ -53,19 +56,21 @@ function Reviews() {
       )
       .then(
         (result) => {
-          alert(result.text);
+          console.log(result.text);
         },
         (error) => {
-          alert(error.text);
+          console.log(error.text);
         }
       );
     e.target.reset();
+    e.preventDefault();
   };
 
   const time = new Date();
 
   return (
     <Container>
+      {open ? <SuccessModal /> : <></>}
       <Zoom>
         <Title>
           <Trace />
@@ -156,7 +161,7 @@ function Reviews() {
                   placeholder="Gostaria de saber sobre a disponibilidade e os preços. Preciso de ajuda com o seguinte: "
                 />
               </div>
-              <SubmitButton type="submit">
+              <SubmitButton type="submit" onClick={() => setOpen(true)}>
                 <FaTelegramPlane />
                 <span>Enviar</span>
               </SubmitButton>
